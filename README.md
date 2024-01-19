@@ -5,7 +5,8 @@ Simple Spotify mockup
 ## How to use it
 
 You will need to run the command `npm i` inside your terminal.
-This project depends on react-bootstrap, react-router-dom, react-redux, bootstrap-icon, react-bootstrap-icon, react-icons
+This project depends on react-bootstrap, react-router-dom, react-redux, bootstrap-icon, react-bootstrap-icon, react-icons.
+This site IS NOT RESPONSIVE, use it only on desktop
 
 ### Dependencies Used
 
