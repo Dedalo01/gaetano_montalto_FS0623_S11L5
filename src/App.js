@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
+import Homepage from "./components/Homepage";
+import { Col, Row } from "react-bootstrap";
+import Player from "./components/Player";
+import Album from "./components/Album";
+import { useState } from "react";
+import Artist from "./components/Artist";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="layout">
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/album/:albumId" element={<Album />} />
+          <Route path="/artist/:artistId" element={<Artist />} />
+        </Routes>
+        <Player />
+      </div>
+    </BrowserRouter>
   );
 }
 
