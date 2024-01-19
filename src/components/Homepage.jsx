@@ -39,9 +39,9 @@ const Homepage = () => {
   return (
     <div className="home">
       {search.length > 0 && (
-        <Container>
+        <Container className="mt-5">
           <h1>Search Results</h1>
-          <Row className=" mt-5">
+          <Row className="mt-4 px-5">
             {search.map((song, i) => {
               return <SearchResults song={song} key={i} />;
             })}

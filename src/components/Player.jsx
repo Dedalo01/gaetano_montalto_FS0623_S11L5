@@ -18,14 +18,15 @@ const Player = () => {
   useEffect(() => {
     setTrack(trackData);
   }, [track]);
+
   return (
-    <Container className="player container-fluid">
-      <Row className="py-2">
-        {track && <ActualTrack track={track} />}
+    <Container className="player container-fluid py-3">
+      <Row className="">
+        {trackData && <ActualTrack />}
 
         <Col
-          lg={7}
-          className="d-flex justify-content-center flex-column align-items-center"
+          lg={6}
+          className="d-flex justify-content-start flex-column align-items-center"
         >
           <Row>
             <Col className="playerControls w-100">

@@ -16,6 +16,7 @@
   grid-template-areas:
     "sidebar sidebar home home home home home home home home home home"
     "sidebar sidebar player player player player player player player player player player";
+  background-color: black;
 }
 
 /*
@@ -188,4 +189,73 @@ ALBUM PAGE
 */
 .album {
   background-color: black;
+}
+
+/*
+==================
+SEARCHRESULTS
+==================
+*/
+.song-text a:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+.album-card {
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.album-card img {
+  width: 100%;
+}
+
+.albumpage {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.albumpage a {
+  text-decoration: none;
+}
+
+.albumpage a:hover {
+  text-decoration: underline;
+  color: green;
+  cursor: pointer;
+}
+
+.album-star {
+  cursor: pointer;
+}
+
+/*
+==================
+ARTIST
+==================
+*/
+.artist-img {
+  width: 20%;
+  border-radius: 50%;
+}
+
+.artist-p p {
+  cursor: pointer;
+}
+.artist-p p:hover {
+  color: green;
+  text-decoration: underline;
+}
+
+/*
+==================
+ACTUAL TRACK
+==================
+*/
+.actual-track-text {
+  font-size: 0.9rem;
+}
+.album-img-container {
+  width: 70%;
 }

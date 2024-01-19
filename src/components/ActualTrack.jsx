@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-const ActualTrack = ({ track }) => {
+const ActualTrack = () => {
   const trackData = useSelector((state) => state.playerSong.addTrack);
 
   useEffect(() => {}, [trackData]);
   return (
     <>
-      {trackData && (
-        <Col lg={3}>
+      {trackData.length > 0 && (
+        <Col lg={4} className="mb-1">
           <div className="actual-track">
             <div className="album-img-container">
               <img src={trackData[0]} alt="album" />

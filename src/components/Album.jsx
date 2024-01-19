@@ -54,15 +54,15 @@ const Album = () => {
   };
 
   return (
-    <div className="home">
+    <div className="home albumpage">
       {albumData && (
         <Container className="d-flex align-items-start justify-content-center gap-5">
           <div>
-            <Card>
+            <Card className="album-card">
               <Card.Img
                 src={albumData.cover_medium}
                 alt={albumData.title}
-                className="song-img "
+                className="song-img"
                 variant="top"
               />
 
@@ -119,19 +119,21 @@ const Album = () => {
                   >
                     {track.title}
                   </a>
-                  <div>
+                  <div className="ms-auto me-4">
                     {isFavoriteTrack ? (
                       <StarFill
+                        className="album-star"
                         color="green"
-                        size={10}
+                        size={19}
                         onClick={() =>
                           dispatch(removeAlbumFavoriteAction(track.title))
                         }
                       />
                     ) : (
                       <Star
+                        className="album-star"
                         color="white"
-                        size={10}
+                        size={19}
                         onClick={() =>
                           dispatch(addAlbumFavoriteAction(track.title))
                         }

@@ -11,14 +11,14 @@ const SearchResults = ({ song }) => {
           className="song-img"
         />
       </Link>
-      <div className="song-text">
+      <div className="song-text mt-1 mb-3 text-center">
         <Link to={`album/${song.album.id}`}>
           Album:{" "}
           {song.album.title.length < 16
             ? song.album.title
             : song.album.title.substring(0, 16) + "..."}
         </Link>
-
+        <br />
         <Link to={`artist/${song.artist.id}`}>Artist: {song.artist.name}</Link>
       </div>
     </Col>

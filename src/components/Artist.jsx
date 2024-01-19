@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { addToPlayerAction } from "../redux/actions";
 
 const URL_PROXY_StriveSchool =
   "https://striveschool-api.herokuapp.com/api/deezer/artist";
@@ -18,6 +20,7 @@ const Artist = () => {
   const [artist, setArtist] = useState(null);
   const [trackList, setTracklist] = useState([]);
   const params = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getArtist();
@@ -58,35 +61,51 @@ const Artist = () => {
   };
 
   return (
-    <div className="home">
-      <Container>{artist && <h1>{artist.name}</h1>}</Container>
+    <div className="home artistpage pt-5">
       {artist && (
-        <Container>
+        <Container className="d-flex flex-column align-items-center mb-5">
+          <img
+            src={artist.picture_medium}
+            className="artist-img"
+            alt="artista"
+          />
           <h1>{artist.name}</h1>
+          <div>
+            <p>Number of Fans Worldwide: {artist.nb_fan}</p>
+          </div>
         </Container>
       )}
-      <Container className="x">
+      <Container>
         <h2>Tracks</h2>
-        <Row>
+        <Row className="p-5">
           {trackList &&
             trackList.map((track, i) => (
               <Col key={i} className="col-sm-auto col-md-auto text-center mb-5">
                 <Link to={`/album/${track.album.id}`}>
                   <img src={track.album.cover_medium} alt={`album ${i}`} />
                 </Link>
-                <div>
-                  <p>
+                <div className="mt-2 artist-p">
+                  <p
+                    onClick={() => {
+                      const arr = [
+                        track.album.cover_small,
+                        track.title,
+                        track.artist.name,
+                      ];
+                      dispatch(addToPlayerAction(arr));
+                    }}
+                  >
                     Track:
                     {track.title.length < 16
                       ? track.title
                       : `${track.title.substring(0, 16)}...`}
                   </p>
-                  <p>
+                  {/* <p>
                     Album:{" "}
                     {track.album.title.length < 16
                       ? track.album.title
                       : `${track.album.title.substring(0, 16)}...`}
-                  </p>
+                  </p> */}
                 </div>
               </Col>
             ))}
